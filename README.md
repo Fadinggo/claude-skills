@@ -1,28 +1,33 @@
 # claude-skills
 
-David 自己的 Claude Code skills，每個資料夾是一個 skill。
+David's Claude Code skills, with one skill per folder.
 
-| Skill | 用途 |
+| Skill | Purpose |
 |---|---|
-| `work-playbook` | David 的工作守則（所有對話與 Code 模式）：先判斷深度再選模型與強度、拆單與外包專家、計畫與進度、Fable 大方向決策、驗收與回報 |
+| `work-playbook` | David's working principles for conversations and Code mode: choosing model and effort, delegation, planning, Fable decisions, acceptance, and reporting. |
 
-## 安裝（每台電腦做一次，PowerShell）
+## Installation
+
+On a new computer, run these commands in PowerShell:
 
 ```powershell
 git clone https://github.com/Fadinggo/claude-skills "$env:USERPROFILE\claude-skills"
-New-Item -ItemType Directory -Force "$env:USERPROFILE\.claude\skills" | Out-Null
-New-Item -ItemType Junction -Path "$env:USERPROFILE\.claude\skills\work-playbook" -Target "$env:USERPROFILE\claude-skills\work-playbook"
+powershell -NoProfile -ExecutionPolicy Bypass -File "$env:USERPROFILE\claude-skills\install.ps1"
 ```
 
-## 更新
+Skills update automatically at each logon and every 3 hours thereafter. To disable this, run `Unregister-ScheduledTask ClaudeSkillsSync`.
+
+## Updating
+
+To update manually:
 
 ```powershell
 git -C "$env:USERPROFILE\claude-skills" pull
 ```
 
-連結（junction）指向這個資料夾，pull 之後 Claude 下次開對話就會用新版本。
+The junctions point to this repository, so Claude uses the updated skills in the next conversation.
 
-## 規則
+## Rules
 
-- 這裡不放任何金鑰、帳號、密碼或交易資料。
-- 修改守則後要 commit，並 push 到 GitHub。
+- Do not store keys, accounts, passwords, or transaction data here.
+- Commit and push changes to the working principles to GitHub.
