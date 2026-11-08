@@ -17,6 +17,13 @@ powershell -NoProfile -ExecutionPolicy Bypass -File "$env:USERPROFILE\claude-ski
 
 Skills update automatically at each logon and every 3 hours thereafter. To disable this, run `Unregister-ScheduledTask ClaudeSkillsSync`.
 
+David's memories live in a separate private repository, `Fadinggo/claude-memory`. On his own computers, install it as well; the first clone may open a GitHub sign-in window:
+
+```powershell
+git clone https://github.com/Fadinggo/claude-memory "$env:USERPROFILE\claude-memory"
+powershell -NoProfile -ExecutionPolicy Bypass -File "$env:USERPROFILE\claude-memory\install.ps1"
+```
+
 ## Updating
 
 To update manually:
